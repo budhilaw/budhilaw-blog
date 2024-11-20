@@ -6,38 +6,40 @@
  */
 
 ?>
-<!DOCTYPE html>
-<html <?php language_attributes();?>>
-<head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<title><?php bloginfo( 'name' ); ?></title>
-	<?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
-	<?php wp_body_open(); ?>
-	<header id="masthead" class="site-header">
-		<?php get_template_part( 'template-parts/header/site', 'branding' ); ?>
-		<?php get_template_part( 'template-parts/header/site', 'navigation' ); ?>
-	</header>
-	<div id="content" class="site-content">
-		<main id="primary" class="site-main">
-			<?php
-			if ( have_posts() ) {
-				while ( have_posts() ) {
-					the_post();
-					get_template_part( 'template-parts/content/content', get_post_type() );
-				}
-			} else {
-				get_template_part( 'template-parts/content/content', 'none' );
-			}
-			?>
+<?php get_header(); ?>
+	<div id="primary">
+		<main id="main" class="site-content" role="main">
+            <div class="bg-white sm:px-6 px-4 py-10 font-sans">
+                <div class="mx-auto max-w-5xl">
+                    <?php if ( have_posts() ) : ?>
+                        <header>
+                            <?php if ( is_home() && ! is_front_page() ) : ?>
+                                <h1 class="text-3xl font-extrabold text-gray-800 inline-block">
+                                    <?php single_post_title(); ?>
+                                </h1>
+                            <?php endif; ?>
+
+                            <p class="text-gray-400 text-sm mt-4">
+                                Feel free to browse my latest articles and don't hesitate to reach out
+                                if you have any questions or need assistance.
+                            </p>
+                        </header>
+                        <hr class="my-8" />
+
+                        <div class="grid gap-16">
+                            <?php
+                            while ( have_posts() ) {
+                                the_post();
+                                get_template_part( 'template-parts/content' );
+                            }
+                            ?>
+                        </div>
+                    <?php else : ?>
+                        <?php get_template_part( 'template-parts/content-none' ); ?>
+                    <?php endif; ?>
+
+                </div>
+            </div>
 		</main>
 	</div>
-	<footer id="colophon" class="site-footer">
-		<?php get_template_part( 'template-parts/footer/site', 'info' ); ?>
-	</footer>
-	<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>
