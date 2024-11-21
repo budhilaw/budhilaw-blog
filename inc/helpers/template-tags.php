@@ -50,3 +50,26 @@ function get_the_post_custom_thumbnail( ?int $post_id, string $size = 'featured-
 function the_post_custom_thumbnail( int $post_id, string $size = 'featured-thumbnail', array $additional_attributes = [] ): void {
 	echo get_the_post_custom_thumbnail( $post_id, $size, $additional_attributes );
 }
+
+/**
+ * Set excerpt length.
+ *
+ * @param int $length
+ */
+function budhilaw_the_excerpt_length( int $length = 0 ): void {
+	if ( ! has_excerpt() || $length == 0 ) {
+		$excerpt = get_the_excerpt();
+		$excerpt = substr($excerpt, 0, strrpos($excerpt, ' ', -1));
+		echo $excerpt . '[...]';
+
+		return;
+	}
+
+	$excerpt = wp_strip_all_tags( get_the_excerpt() );
+	$excerpt = substr( $excerpt, 0, $length );
+	$excerpt = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );
+
+	$excerpt = $excerpt . '[...]';
+	echo $excerpt;
+	return;
+}

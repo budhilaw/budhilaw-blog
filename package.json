@@ -5,13 +5,15 @@
   "main": "",
   "scripts": {
     "start:tailwind": "npx tailwindcss -i ./css/input.css -o ./css/global.css --watch",
+    "start:all": "npm-run-all --parallel start:tailwind",
     "blocks": "wp-scripts start --experimental-modules",
-    "build": "run-s buildIndex buildBlocks",
+    "build": "run-s buildIndex buildBlocks build:flyonui",
     "buildIndex": "wp-scripts build src/index.js",
     "buildBlocks": "wp-scripts build --experimental-modules",
     "preview": "npm-run-all --parallel sync start",
     "sync": "browser-sync start -p 'june2024hybrid.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:flyonui": "cp node_modules/flyonui/dist/flyonui.js assets/js/"
   },
   "keywords": [
     "personal",
@@ -29,6 +31,8 @@
     "@wordpress/icons": "^9.41.0",
     "@wordpress/interactivity": "^6.0.0",
     "@wordpress/scripts": "^27.7.0",
+    "flyonui": "^1.1.0",
+    "npm-run-all": "^4.1.5",
     "tailwindcss": "^3.4.15"
   }
 }

@@ -21,7 +21,7 @@
 
                             <p class="text-gray-400 text-sm mt-4">
                                 Feel free to browse my latest articles and don't hesitate to reach out
-                                if you have any questions or need assistance.
+                                if you have any questions.
                             </p>
                         </header>
                         <hr class="my-8" />
