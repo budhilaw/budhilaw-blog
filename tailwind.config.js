@@ -2,7 +2,8 @@ const { addDynamicIconSelectors } = require('@iconify/tailwind');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  important: true,
+  darkMode: "selector",
+  important: false,
   content: [
     './**/**.php',
     "./node_modules/flyonui/dist/js/*.js"

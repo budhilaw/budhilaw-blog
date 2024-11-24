@@ -8,19 +8,26 @@
 
 <section class="not-found justify-content-center flex">
 	<header class="page-header">
-		<h1 class="text-3xl font-extrabold text-gray-800 inline-block">
-			<?php esc_html_e( 'Nothing Found', 'budhilaw' ); ?>
-		</h1>
 		<?php if ( is_search() ): ?>
-			<p class="text-gray-400 text-sm mt-4">
-				<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'budhilaw' ); ?>
-				<?php get_search_form(); ?>
-			</p>
+            <div>
+                <h1 class="text-3xl font-extrabold text-gray-800 dark:text-gray-200 inline-block">
+					<?php esc_html_e( 'Search Results', 'budhilaw' ); ?>
+                </h1>
+
+                <p class="text-gray-400 dark:text-gray-200 text-sm mt-4">
+	                <?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'budhilaw' ); ?>
+                </p>
+            </div>
 		<?php else: ?>
-			<p class="text-gray-400 text-sm mt-4">
-				<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'budhilaw' ); ?>
-				<?php get_search_form(); ?>
-			</p>
+            <div>
+                <h1 class="text-3xl font-extrabold text-gray-800 dark:text-gray-200 inline-block">
+					<?php esc_html_e( 'Are you lost?', 'budhilaw' ); ?>
+                </h1>
+
+                <p class="text-gray-400 dark:text-gray-200 text-sm mt-4">
+	                <?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'budhilaw' ); ?>
+                </p>
+            </div>
 		<?php endif; ?>
 	</header>
 </section>

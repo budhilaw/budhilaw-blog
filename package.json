@@ -2,18 +2,19 @@
   "name": "budhilaw-blog-theme",
   "version": "1.0.0",
   "description": "",
-  "main": "",
+  "main": "index.js",
   "scripts": {
     "start:tailwind": "npx tailwindcss -i ./css/input.css -o ./css/global.css --watch",
+    "start:wp": "wp-scripts start src/index.js",
     "start:all": "npm-run-all --parallel start:tailwind",
     "blocks": "wp-scripts start --experimental-modules",
     "build": "run-s buildIndex buildBlocks build:flyonui",
     "buildIndex": "wp-scripts build src/index.js",
     "buildBlocks": "wp-scripts build --experimental-modules",
-    "preview": "npm-run-all --parallel sync start",
-    "sync": "browser-sync start -p 'june2024hybrid.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "preview": "npm-run-all --parallel sync start:all",
+    "sync": "browser-sync start -p 'budhilaw.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:flyonui": "cp node_modules/flyonui/dist/flyonui.js assets/js/"
+    "build:flyonui": "cp node_modules/flyonui/flyonui.js assets/js/"
   },
   "keywords": [
     "personal",
@@ -28,11 +29,18 @@
     "tailwindcss": "^3.4.15"
   },
   "dependencies": {
+    "@wordpress/block-editor": "^14.7.0",
+    "@wordpress/blocks": "^14.1.0",
+    "@wordpress/components": "^28.12.0",
     "@wordpress/icons": "^9.41.0",
     "@wordpress/interactivity": "^6.0.0",
     "@wordpress/scripts": "^27.7.0",
+    "axios": "^1.6.7",
+    "browser-sync": "^3.0.2",
     "flyonui": "^1.1.0",
+    "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
+    "react-color": "^2.19.3",
     "tailwindcss": "^3.4.15"
   }
 }

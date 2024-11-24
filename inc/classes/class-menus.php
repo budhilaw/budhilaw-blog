@@ -71,4 +71,11 @@ class Menus {
 
 		return $child_menus;
 	}
+
+	public function special_nav_class ($classes, $item) {
+		if (in_array('current-menu-item', $classes) ){
+			$classes[] = 'active ';
+		}
+		return $classes;
+	}
 }

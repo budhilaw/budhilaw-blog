@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "budhilaw-blocks/related-posts",
+  "version": "1.0.0",
+  "title": "Budhilaw Related Posts",
+  "icon": "grid-view",
+  "description": "Display related posts",
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "budhilaw",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Related Posts"
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  }
+}

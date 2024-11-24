@@ -16,12 +16,14 @@ class BUDHILAW_THEME {
 		// load classes
 		Assets::get_instance();
 		Menus::get_instance();
+		Sidebars::get_instance();
 
 		$this->setup_hooks();
 	}
 
 	protected function setup_hooks(): void {
 		// actions
+		add_action( 'init', [ $this, 'budhilaw_blocks' ] );
 		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
 
 		add_filter('the_content', [ $this, 'budhilaw_content_classes' ]);
@@ -65,6 +67,9 @@ class BUDHILAW_THEME {
 			'style',
 		] );
 
+		/* Disable WordPress Admin Bar for all users */
+		add_filter( 'show_admin_bar', '__return_false' );
+
 		add_theme_support( 'wp-block-styles' );
 
 		add_theme_support( 'align-wide' );
@@ -88,10 +93,10 @@ class BUDHILAW_THEME {
 	 */
 	public function budhilaw_content_classes(string $content): string {
 		// Existing paragraph and heading styles
-		$content = str_replace( '<p>', '<p class="mb-8 text-lg leading-relaxed text-gray-800">', $content );
-		$content = str_replace( '<h2 class="wp-block-heading">', '<h2 class="wp-block-heading text-4xl font-bold mb-8 mt-12 text-gray-900">', $content );
-		$content = str_replace( '<h3 class="wp-block-heading">', '<h3 class="wp-block-heading text-3xl font-semibold mb-6 mt-10 text-gray-900">', $content );
-		$content = str_replace( '<h4 class="wp-block-heading">', '<h4 class="wp-block-heading text-2xl font-medium mb-4 mt-8 text-gray-900">', $content );
+		$content = str_replace( '<p>', '<p class="mb-8 text-lg leading-relaxed dark:text-gray-200 text-gray-800">', $content );
+		$content = str_replace( '<h2 class="wp-block-heading">', '<h2 class="wp-block-heading text-4xl font-bold mb-8 mt-12 dark:text-gray-200 text-gray-900">', $content );
+		$content = str_replace( '<h3 class="wp-block-heading">', '<h3 class="wp-block-heading text-3xl font-semibold mb-6 mt-10 dark:text-gray-200 text-gray-900">', $content );
+		$content = str_replace( '<h4 class="wp-block-heading">', '<h4 class="wp-block-heading text-2xl font-medium mb-4 mt-8 dark:text-gray-200 text-gray-900">', $content );
 
 		// Enhanced code block with macOS-style window and copy button - removed gap
 		$content = preg_replace(
@@ -122,4 +127,14 @@ class BUDHILAW_THEME {
 		);
 
 		return $content;
-	}}
+	}
+
+	public function budhilaw_blocks(): void {
+		wp_localize_script('wp-editor', 'ourThemeData', array('themePath' => get_stylesheet_directory_uri()));
+
+		register_block_type( get_template_directory() . '/build/related-posts' );
+		register_block_type( get_template_directory() . '/build/container' );
+		register_block_type( get_template_directory() . '/build/categories' );
+		register_block_type( get_template_directory() . '/build/search' );
+	}
+}

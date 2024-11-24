@@ -36,6 +36,22 @@ class Assets {
 	}
 
 	public function register_scripts(): void {
+		wp_register_script(
+			'main-js',
+			get_template_directory_uri() . '/assets/js/main.js',
+			array('jquery'),
+			'1.0',
+			true
+		);
+
+		wp_register_script(
+			'flyonui-js',
+			get_template_directory_uri() . '/assets/js/flyonui.js',
+			[],
+			'1.0',
+			true
+		);
+
 		// Register Core Prism library
 		wp_register_script(
 			'prismjs',
@@ -63,6 +79,8 @@ class Assets {
 			true
 		);
 
+		wp_enqueue_script( 'main-js');
+		wp_enqueue_script( 'flyonui-js' );
 		wp_enqueue_script('prismjs');
 		wp_enqueue_script('prismjs-autoloader');
 		wp_enqueue_script('syntax-highlight');

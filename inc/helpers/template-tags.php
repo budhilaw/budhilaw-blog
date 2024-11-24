@@ -73,3 +73,55 @@ function budhilaw_the_excerpt_length( int $length = 0 ): void {
 	echo $excerpt;
 	return;
 }
+
+/**
+ * Pagination for single and archive pages.
+ *
+ */
+function budhilaw_pagination() {
+	echo '<nav class="flex items-center gap-x-1">';
+
+	// Previous button
+	echo get_previous_posts_link(
+		'<button type="button" class="btn btn-soft">Previous</button>'
+	);
+
+	echo '<div class="flex items-center gap-x-1">';
+
+	$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+	$pages = paginate_links(array(
+		'type' => 'array',
+		'prev_next' => false,
+	));
+
+	if ($pages) {
+		foreach ($pages as $page) {
+			$is_current = strpos($page, 'current') !== false;
+			$current = $is_current ? 'aria-current="page"' : '';
+			preg_match('/href="([^"]+)"/', $page, $matches);
+			$href = isset($matches[1]) ? $matches[1] : '#';
+			$number = strip_tags($page);
+
+			$button_classes = $is_current
+				? 'btn btn-soft btn-square bg-blue-600 text-white aria-[current=\'page\']:text-bg-soft-primary'
+				: 'btn btn-soft btn-square aria-[current=\'page\']:text-bg-soft-primary';
+
+			echo sprintf(
+				'<a href="%s"><button type="button" class="%s" %s>%s</button></a>',
+				esc_url($href),
+				$button_classes,
+				$current,
+				$number
+			);
+		}
+	}
+
+	echo '</div>';
+
+	echo get_next_posts_link(
+		'<button type="button" class="btn btn-soft">Next</button>'
+	);
+
+	echo '</nav>';
+}
+

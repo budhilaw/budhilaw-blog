@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "budhilaw-blocks/container",
+  "version": "1.0.0",
+  "title": "Budhilaw Container",
+  "description": "Add a container to your content",
+  "supports": {
+    "align": ["full"]
+  },
+  "attributes": {
+    "align": { "type": "string", "default": "full" }
+  },
+  "textdomain": "budhilaw",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}
