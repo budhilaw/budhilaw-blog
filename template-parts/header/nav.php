@@ -13,10 +13,6 @@ $current_menu = current( wp_filter_object_list( $header_menus, array( 'object_id
 ?>
 
 <header class='flex flex-wrap items-center gap-5 w-full border-b dark:border-gray-800 py-4 px-4 sm:px-10 dark:bg-gray-800 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50 shadow-md'>
-    <div class='flex h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10'>
-        <?php the_custom_logo(); ?>
-    </div>
-
     <div class="ml-auto items-center gap-2 lg:hidden">
         <button id="toggleOpen" class="text-2xl p-2.5">
             <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

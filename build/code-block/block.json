@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "budhilaw-blocks/code-block",
+  "version": "1.0.0",
+  "title": "Budhilaw Code Block",
+  "description": "Add a section of code block",
+  "supports": {
+    "align": [
+      "full"
+    ]
+  },
+  "attributes": {
+    "language": {
+      "type": "string",
+      "default": "html"
+    },
+    "code": {
+      "type": "string",
+      "default": ""
+    },
+    "align": {
+      "type": "string",
+      "default": "full"
+    }
+  },
+  "textdomain": "budhilaw",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

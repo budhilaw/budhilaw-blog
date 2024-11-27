@@ -136,5 +136,6 @@ class BUDHILAW_THEME {
 		register_block_type( get_template_directory() . '/build/container' );
 		register_block_type( get_template_directory() . '/build/categories' );
 		register_block_type( get_template_directory() . '/build/search' );
+		register_block_type( get_template_directory() . '/build/code-block' );
 	}
 }

@@ -6,7 +6,7 @@
  */
 ?>
 
-<footer class="w-full dark:bg-gray-800 py-6">
+<footer class="w-full bg-gray-300 dark:bg-gray-800 py-6">
     <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
@@ -55,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="text-sm dark:text-gray-100">
+            <div class="text-sm text-gray-800 dark:text-gray-100">
                 © <?php echo date('Y'); ?> <?php echo get_bloginfo('name'); ?>. All rights reserved.
             </div>
         </div>
