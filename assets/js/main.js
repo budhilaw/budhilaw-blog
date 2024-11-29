@@ -3,9 +3,10 @@ const html = document.documentElement;
 const moonIcon = document.querySelector('#theme-toggle-dark-icon');
 const sunIcon = document.querySelector('#theme-toggle-light-icon');
 
-var toggleOpen = document.getElementById('toggleOpen');
-var toggleClose = document.getElementById('toggleClose');
-var collapseMenu = document.getElementById('collapseMenu');
+const toggleOpen = document.getElementById('toggleOpen');
+const toggleClose = document.getElementById('toggleClose');
+const fixedMenu = document.getElementById('fixed-nav');
+const navOverlay = document.getElementById('nav-overlay');
 
 // Check localStorage on page load
 if (localStorage.theme === 'dark') {
@@ -34,11 +35,20 @@ themeToggleBtn.addEventListener('click', () => {
 
 
 function handleClick() {
-    if (collapseMenu.style.display === 'block') {
-        collapseMenu.style.display = 'none';
+    if (fixedMenu.classList.contains('hidden')) {
+        fixedMenu.classList.remove('hidden');
+        fixedMenu.classList.add('block');
+
+        navOverlay.classList.remove('hidden');
+        navOverlay.classList.add('block');
     } else {
-        collapseMenu.style.display = 'block';
+        fixedMenu.classList.remove('block');
+        fixedMenu.classList.add('hidden');
+
+        navOverlay.classList.remove('block');
+        navOverlay.classList.add('hidden');
     }
 }
+
 toggleOpen.addEventListener('click', handleClick);
 toggleClose.addEventListener('click', handleClick);

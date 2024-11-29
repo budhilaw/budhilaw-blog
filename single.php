@@ -12,7 +12,7 @@
 get_header();
 ?>
 
-<main id="main-content" class="bg-white dark:bg-gray-900">
+<main id="main-content">
     <?php
         while (have_posts()) : the_post();
             get_template_part('template-parts/content-single');

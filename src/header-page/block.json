@@ -1,16 +1,16 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "budhilaw-blocks/code-block",
+  "name": "budhilaw-blocks/header",
   "version": "1.0.0",
-  "title": "Budhilaw Code Block",
-  "description": "Add a section of code block",
+  "title": "Budhilaw Custom Header Page",
+  "description": "Add a section for header page",
   "supports": {
     "align": ["full"]
   },
   "attributes": {
-    "language": { "type": "string", "default": "html" },
-    "code": { "type": "string", "default": "" },
+    "title": { "type": "string", "default": "Header" },
+    "subtitle": { "type": "string", "default": "Subtitle" },
     "align": { "type": "string", "default": "full" }
   },
   "textdomain": "budhilaw",

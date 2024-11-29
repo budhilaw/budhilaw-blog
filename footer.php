@@ -6,9 +6,10 @@
  */
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<?php get_template_part( 'template-parts/footer/nav', 'info' ); ?>
-	</footer>
+        <footer id="colophon" class="site-footer">
+            <?php get_template_part( 'template-parts/footer/nav', 'info' ); ?>
+        </footer>
+    </div>
 </div>
 
 <?php wp_footer(); ?>

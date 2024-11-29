@@ -6,8 +6,8 @@
  */
 ?>
 
-<footer class="w-full bg-gray-300 dark:bg-gray-800 py-6">
-    <div class="container mx-auto px-4">
+<footer class="w-full bg-white dark:bg-gray-700 py-6 border-t-1 border-gray-200 dark:border-gray-700">
+    <div class="lg:mx-16 mx-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
             <div class="mb-4 md:mb-0">
                 <ul class='flex gap-x-4 z-50'>

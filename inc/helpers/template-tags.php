@@ -41,6 +41,27 @@ function get_the_post_custom_thumbnail( ?int $post_id, string $size = 'featured-
 }
 
 /**
+ * Gets the thumbnail URL only.
+ * Should be called in the WordPress Loop.
+ *
+ * @param int|null $post_id Post ID.
+ * @param string $size    The registered image size.
+ *
+ * @return string
+ */
+function get_the_post_thumbnail_url_only( ?int $post_id, string $size = 'featured-thumbnail' ): string {
+	if ( null === $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( has_post_thumbnail( $post_id ) ) {
+		return wp_get_attachment_image_url( get_post_thumbnail_id( $post_id ), $size );
+	}
+
+	return '';
+}
+
+/**
  * Renders Custom Thumbnail with Lazy Load.
  *
  * @param int $post_id               Post ID.
@@ -124,4 +145,3 @@ function budhilaw_pagination() {
 
 	echo '</nav>';
 }
-

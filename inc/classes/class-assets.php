@@ -28,7 +28,7 @@ class Assets {
 
 		// Base Prism CSS theme
 		wp_enqueue_style( 'prismjs-coldark-dark', BUDHILAW_DIR_URI . '/css/prism-coldark-dark.css', array(), '1.0.0', 'all' );
-		// wp_enqueue_style( 'prismjs-style', 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css' );
+		 wp_enqueue_style( 'prismjs-style', 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css' );
 
 		// enqueue styles
 		wp_enqueue_style( 'style-css' );
@@ -80,7 +80,6 @@ class Assets {
 		);
 
 		wp_enqueue_script( 'main-js');
-		wp_enqueue_script( 'flyonui-js' );
 		wp_enqueue_script('prismjs');
 		wp_enqueue_script('prismjs-autoloader');
 		wp_enqueue_script('syntax-highlight');

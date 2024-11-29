@@ -4,19 +4,19 @@ if ( post_password_required() ) {
 }
 ?>
 
-<section id="comments-section" class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
-	<div class="max-w-2xl mx-auto px-4">
-		<div class="flex justify-between items-center mb-6">
-			<h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
-			    <?php
-				    $comments_number = get_comments_number();
-				    printf(
-				        _n('Discussion (%s)', 'Discussions (%s)', $comments_number, 'budhilaw'),
-				        number_format_i18n($comments_number)
-				    );
-			    ?>
-			</h2>
-		</div>
+<section id="comments-section" class="pb-8 lg:pb-8 antialiased text-gray-800 dark:text-gray-100">
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">
+                <?php
+                $comments_number = get_comments_number();
+                printf(
+                    _n('Discussion (%s)', 'Discussions (%s)', $comments_number, 'budhilaw'),
+                    number_format_i18n($comments_number)
+                );
+                ?>
+            </h2>
+        </div>
 
 	    <?php if ( comments_open() ) : ?>
 	        <?php comment_form(array(
@@ -35,10 +35,11 @@ if ( post_password_required() ) {
         <?php if ( have_comments() ) : ?>
 	        <?php
 		        wp_list_comments(array(
+		            'style' => 'ul',
 		            'callback' => function($comment, $args, $depth) {
 		                    $GLOBALS['comment'] = $comment;
 		                ?>
-		                <div <?php comment_class('p-6 text-base bg-white rounded-lg dark:bg-gray-900' . ($depth > 1 ? ' mb-3 ml-6 lg:ml-12' : '')); ?>>
+		                <li <?php comment_class('p-6 text-base rounded-lg' . ($depth > 1 ? ' mb-3 ml-6 lg:ml-12' : '')); ?>>
 		                    <div class="flex justify-between items-center mb-2">
 		                        <div class="flex items-center">
 		                            <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
@@ -51,9 +52,9 @@ if ( post_password_required() ) {
 		                        </div>
 		                    </div>
 		                    <?php if (!$comment->comment_approved) : ?>
-		                        <p class="text-gray-500 dark:text-gray-400"><?php _e('Your comment is awaiting moderation.', 'budhilaw'); ?></p>
+		                        <p><?php _e('Your comment is awaiting moderation.', 'budhilaw'); ?></p>
 		                    <?php endif; ?>
-		                    <div class="text-gray-500 dark:text-gray-400">
+		                    <div>
 		                        <?php comment_text(); ?>
 		                    </div>
 		                    <div class="flex items-center mt-4 space-x-4">
@@ -69,7 +70,7 @@ if ( post_password_required() ) {
 		                        )));
 		                        ?>
 		                    </div>
-		                </div>
+		                </li>
 		                <?php
 		            }
 		        ));
@@ -86,5 +87,6 @@ if ( post_password_required() ) {
 		<?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 		    <p class="no-comments"><?php _e( 'Comments are closed.', 'budhilaw' ); ?></p>
 		<?php endif; ?>
-	</div>
-</section></section>
+
+    </div>
+</section>

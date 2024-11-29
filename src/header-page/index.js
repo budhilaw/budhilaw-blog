@@ -4,13 +4,13 @@ import Edit from "./edit"
 
 registerBlockType(metadata.name, {
   attributes: {
-    code: {
-      type: 'string',
-      default: 'Code Block'
+    title: {
+      type: "string",
+      default: "Title"
     },
-    language: {
-      type: 'string',
-      default: 'html'
+    subtitle: {
+      type: "string",
+      default: "Subtitle"
     }
   },
   edit: Edit,

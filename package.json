@@ -32,6 +32,9 @@
     "@wordpress/block-editor": "^14.7.0",
     "@wordpress/blocks": "^14.1.0",
     "@wordpress/components": "^28.12.0",
+    "@wordpress/element": "^6.13.0",
+    "@wordpress/hooks": "^4.13.0",
+    "@wordpress/i18n": "^5.13.0",
     "@wordpress/icons": "^9.41.0",
     "@wordpress/interactivity": "^6.0.0",
     "@wordpress/scripts": "^27.7.0",
@@ -40,6 +43,8 @@
     "flyonui": "^1.1.0",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-color": "^2.19.3",
     "tailwindcss": "^3.4.15"
   }

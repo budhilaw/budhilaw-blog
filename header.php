@@ -24,5 +24,6 @@ if ( function_exists( 'wp_body_open' ) ) {
 }
 ?>
 
-<div id ="page" class="site">
-	<?php get_template_part( 'template-parts/header/nav' ); ?>
+<div id ="page" class="site dark:bg-slate-900 bg-zinc-50">
+    <div class="container mx-auto dark:bg-slate-800 bg-white">
+	    <?php get_template_part( 'template-parts/header/nav' ); ?>

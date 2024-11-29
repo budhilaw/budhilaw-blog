@@ -54,6 +54,7 @@ class BUDHILAW_THEME {
 		add_theme_support( 'post-thumbnails' );
 
 		add_image_size( 'featured-thumbnail', 1024, 192, true );
+		add_image_size( 'featured-card', 415, 254, true );
 
 		add_theme_support( 'automatic-feed-links' );
 
@@ -136,6 +137,6 @@ class BUDHILAW_THEME {
 		register_block_type( get_template_directory() . '/build/container' );
 		register_block_type( get_template_directory() . '/build/categories' );
 		register_block_type( get_template_directory() . '/build/search' );
-		register_block_type( get_template_directory() . '/build/code-block' );
+		register_block_type( get_template_directory() . '/build/header-page' );
 	}
 }

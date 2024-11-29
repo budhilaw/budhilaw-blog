@@ -12,23 +12,23 @@
 				<div class="absolute inset-0 bg-black bg-opacity-50 dark:bg-opacity-60"></div>
 			</div>
 			<div class="container relative mx-auto h-full flex items-center px-4">
-				<header class="max-w-5xl">
+				<div class="max-w-5xl">
 					<h1 class="text-5xl font-bold text-white mb-4 leading-tight"><?php the_title(); ?></h1>
 					<div class="flex items-center text-gray-200 text-lg">
-                            <span class="mr-4">
-                                <time datetime="<?php echo get_the_date('c'); ?>">
-                                    <?php echo get_the_date(); ?>
-                                </time>
-                            </span>
+                        <span class="mr-4">
+                            <time datetime="<?php echo get_the_date('c'); ?>">
+                                <?php echo get_the_date(); ?>
+                            </time>
+                        </span>
 						<span class="mr-4">
-                                <?php echo get_the_author(); ?>
-                            </span>
+                            <?php echo get_the_author(); ?>
+                        </span>
 					</div>
-				</header>
+				</div>
 			</div>
 		</div>
 	<?php else : ?>
-		<header class="container mx-auto py-20 max-w-5xl">
+		<div class="container mx-auto py-20 max-w-5xl">
 			<h1 class="text-5xl font-bold dark:text-gray-200 text-gray-900 mb-4 leading-tight"><?php the_title(); ?></h1>
 			<div class="flex items-center dark:text-gray-400 text-gray-600 text-lg">
                 <span class="mr-4">
@@ -40,29 +40,34 @@
                     <?php echo get_the_author(); ?>
                 </span>
 			</div>
-		</header>
+		</div>
 	<?php endif; ?>
 
 	<div class="container mx-auto px-4">
-		<div class="max-w-5xl mx-auto">
-			<div class="prose prose-xl max-w-none prose-headings:font-bold prose-p:text-lg prose-p:leading-relaxed prose-p:text-gray-800 prose-p:mb-8">
-				<?php the_content(); ?>
-			</div>
-			<footer class="mt-12 pt-8 border-t border-gray-200">
-				<?php
-				$tags = get_the_tags();
-				if ($tags) : ?>
-					<div class="flex flex-wrap gap-2">
-						<?php foreach ($tags as $tag) : ?>
-							<a href="<?php echo get_tag_link($tag->term_id); ?>"
-							   class="text-sm dark:text-blue-200 dark:hover:text-blue-500 text-blue-600 hover:text-blue-800">
-								#<?php echo $tag->name; ?>
-							</a>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-			</footer>
-		</div>
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="prose prose-xl max-w-none prose-headings:font-bold prose-p:text-lg prose-p:leading-relaxed prose-p:text-gray-800 prose-p:mb-8">
+                <?php the_content(); ?>
+            </div>
+
+            <div class="divider"></div>
+
+            <?php if ( has_tag() ) : ?>
+                <div class="my-8">
+                    <?php
+                    $tags = get_the_tags();
+                    if ($tags) : ?>
+                        <div class="flex flex-wrap gap-2">
+                            <?php foreach ($tags as $tag) : ?>
+                                <a href="<?php echo get_tag_link($tag->term_id); ?>"
+                                   class="text-sm dark:text-blue-200 dark:hover:text-blue-500 text-blue-600 hover:text-blue-800">
+                                    #<?php echo $tag->name; ?>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        </div>
 	</div>
 </article>
 
@@ -70,7 +75,7 @@
 wp_link_pages(
 	[
 		'before' => '
-			<div class="container mx-auto px-4">
+			<div class="container mx-auto px-4 my-16">
 				<div class="max-w-5xl mx-auto">
 					<div class="page-links">
         				<ul class="font-[sans-serif] flex mx-auto border divide-x-2 border-gray-400 hover:border-black rounded w-max overflow-hidden">',
